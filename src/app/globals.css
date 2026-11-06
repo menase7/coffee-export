@@ -1,0 +1,192 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 23 17 14;
+    --foreground: 245 239 230;
+  }
+
+  * {
+    border-color: #493629;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: #17110E;
+    color: #F5EFE6;
+    font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+
+  ::selection {
+    background-color: #C99A52;
+    color: #17110E;
+  }
+}
+
+/* Custom subtle espresso scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #17110E;
+}
+::-webkit-scrollbar-thumb {
+  background: #35261D;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C99A52;
+}
+
+/* Texture overlays */
+.coffee-grid-pattern {
+  background-size: 44px 44px;
+  background-image: 
+    linear-gradient(to right, rgba(73, 54, 41, 0.16) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(73, 54, 41, 0.16) 1px, transparent 1px);
+}
+
+.coffee-radial-gradient {
+  background: radial-gradient(circle at 50% 20%, rgba(201, 154, 82, 0.12) 0%, transparent 65%);
+}
+
+.coffee-radial-glow {
+  background: radial-gradient(ellipse at center, rgba(201, 154, 82, 0.15) 0%, transparent 70%);
+}
+
+.coffee-vignette {
+  box-shadow: inset 0 0 120px rgba(10, 7, 5, 0.85);
+}
+
+/* Glassmorphism */
+.coffee-glass {
+  background: rgba(42, 30, 23, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(201, 154, 82, 0.2);
+}
+
+.coffee-glass-subtle {
+  background: rgba(33, 23, 18, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(73, 54, 41, 0.5);
+}
+
+/* Golden text and box glows */
+.text-glow-gold {
+  text-shadow: 0 0 20px rgba(201, 154, 82, 0.35);
+}
+
+.box-glow-gold {
+  box-shadow: 0 0 35px -5px rgba(201, 154, 82, 0.3);
+}
+
+.border-glow-gold {
+  border-color: rgba(201, 154, 82, 0.45);
+  box-shadow: 0 0 15px -2px rgba(201, 154, 82, 0.2);
+}
+
+/* Ethiopian inspired accent bar */
+.ethiopian-accent-bar {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(169, 105, 59, 0.3) 15%,
+    rgba(201, 154, 82, 0.8) 50%,
+    rgba(169, 105, 59, 0.3) 85%,
+    transparent 100%
+  );
+}
+
+/* Shiny text animation keyframes */
+@keyframes shiny-text {
+  0% {
+    background-position: 100%;
+  }
+  100% {
+    background-position: -100%;
+  }
+}
+
+.animate-shiny-text {
+  animation: shiny-text 4s linear infinite;
+}
+
+/* Ken Burns slow cinematic breathe */
+@keyframes kenburns {
+  0% {
+    transform: scale(1.04) translateY(0);
+  }
+  50% {
+    transform: scale(1.08) translateY(-6px);
+  }
+  100% {
+    transform: scale(1.04) translateY(0);
+  }
+}
+
+.animate-ken-burns {
+  animation: kenburns 22s ease-in-out infinite alternate;
+}
+
+/* Ambient floating ember/dust particle */
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0) translateX(0) scale(1);
+    opacity: 0.3;
+  }
+  33% {
+    transform: translateY(-20px) translateX(10px) scale(1.1);
+    opacity: 0.7;
+  }
+  66% {
+    transform: translateY(-35px) translateX(-8px) scale(0.95);
+    opacity: 0.4;
+  }
+}
+
+.animate-float-slow {
+  animation: float-slow 10s ease-in-out infinite;
+}
+
+/* Shimmer pulse for cards */
+@keyframes card-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.card-shimmer {
+  background-image: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(201, 154, 82, 0.08) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 200% 100%;
+  animation: card-shimmer 6s infinite linear;
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
